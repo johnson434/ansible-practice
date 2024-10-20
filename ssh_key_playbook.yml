@@ -1,0 +1,23 @@
+
+---
+- name: Add SSH key to remote node
+  hosts: all   # 호스트 정의 (inventory 파일에 설정된 그룹 또는 특정 호스트)
+  vars:
+    ansible_user: "vagrant"
+  become: yes  # root 권한으로 실행하기 위한 옵션
+  tasks:
+    - name: Ensure ~/.ssh directory exists
+      file:
+        path: /home/{{ ansible_user }}/.ssh
+        state: directory
+        mode: '0700'
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+
+    - name: Add public key to authorized_keys
+      authorized_key:
+        user: "{{ ansible_user }}"  # 접속할 유저
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"  # 공개 키의 경로 지정
+        path: "/home/{{ ansible_user }}/.ssh/authorized_keys"
+        manage_dir: yes
