@@ -1,0 +1,11 @@
+myhosts:
+  hosts:
+    control-plane:
+      ansible_user: vagrant
+      ansible_host: 10.0.0.10
+    node01:
+      ansible_user: vagrant
+      ansible_host: 10.0.0.11
+    node02:
+      ansible_user: vagrant
+      ansible_host: 10.0.0.12
