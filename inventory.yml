@@ -1,4 +1,16 @@
-myhosts:
+region:
+  children:
+    ap_northeast_2:
+
+ap_northeast_2:
+  children:
+    az_a:
+
+az_a:
+  children:
+    dev:
+
+dev:
   hosts:
     container01:
       ansible_user: root 
