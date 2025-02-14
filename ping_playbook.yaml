@@ -1,0 +1,9 @@
+- name: My first play
+  hosts: region:ap_northeast_2:az_a:dev
+  tasks:
+   - name: Ping my hosts
+     ansible.builtin.ping:
+
+   - name: Print message
+     ansible.builtin.debug:
+       msg: Hello world
