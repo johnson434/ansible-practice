@@ -7,6 +7,6 @@ if [ $PORT_START_RANGE -gt $PORT_END_RANGE ]; then
 	exit 1
 fi
 
-for PORT in `seq $PORT_START_RANGE $PORT_END_RANGE`; do
-	docker run -d --name "ansible-$PORT" -p $PORT:22 $IMAGE 
+for PORT in $(seq $PORT_START_RANGE $PORT_END_RANGE); do
+	docker container run --restart unless-stopped -d --name "ansible-$PORT" -p $PORT:22 $IMAGE
 done

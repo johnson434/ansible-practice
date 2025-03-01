@@ -13,14 +13,14 @@ az_a:
 dev:
   hosts:
     container01:
-      ansible_user: root 
+      ansible_user: root
       ansible_host: localhost
       ansible_port: 10000
     container02:
-      ansible_user: root 
+      ansible_user: root
       ansible_host: localhost
       ansible_port: 10001
     container03:
-      ansible_user: root 
+      ansible_user: root
       ansible_host: localhost
       ansible_port: 10002
